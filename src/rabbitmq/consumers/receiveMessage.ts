@@ -8,7 +8,7 @@ async function receiveMessages() {
     await channel.assertQueue(queue);
     console.log('🎧 Waiting for messages...');
 
-    channel.consume(queue, (msg) => {
+    await channel.consume(queue, (msg) => {
         if (msg) {
             console.log(`📩 Received: ${msg.content.toString()}`);
             channel.ack(msg);
