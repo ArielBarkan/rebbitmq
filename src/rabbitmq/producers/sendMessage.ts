@@ -8,6 +8,6 @@ export async function sendMessageToQueue(message: string) {
     await channel.assertQueue(queue);
     channel.sendToQueue(queue, Buffer.from(message));
 
-    console.log(`✅ Sent: ${message}`);
+    console.log(`Sent: ${message}`);
     setTimeout(() => connection.close(), 500);
 }

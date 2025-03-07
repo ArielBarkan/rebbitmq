@@ -6,11 +6,11 @@ async function receiveMessages() {
     const queue = process.env.REACT_APP_QUEUE!;
 
     await channel.assertQueue(queue);
-    console.log('🎧 Waiting for messages...');
+    console.log('Waiting for messages...');
 
     await channel.consume(queue, (msg) => {
         if (msg) {
-            console.log(`📩 Received: ${msg.content.toString()}`);
+            console.log(`Received: ${msg.content.toString()}`);
             channel.ack(msg);
         }
     });
